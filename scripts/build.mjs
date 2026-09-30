@@ -19,7 +19,7 @@ const message = key => {
 };
 
 await mkdir(dist, { recursive: true });
-for (const path of ['images', 'src', 'style.css', 'main.js', 'quiz.js', 'results.js', 'flags.js', 'LICENSE']) {
+for (const path of ['images', 'src', 'style.css', 'main.js', 'quiz.js', 'results.js', 'flags.js', 'LICENSE', 'THIRD_PARTY_NOTICES.txt']) {
   await cp(join(root, path), join(dist, path), { recursive: true });
 }
 for (const language of languages) {
