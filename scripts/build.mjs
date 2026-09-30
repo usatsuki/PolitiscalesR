@@ -33,7 +33,7 @@ for (const language of languages) {
 const header = `<header><div id="header">
   <a class="about" href="./about/" title="About" aria-label="About"><svg style="width:1.9em;height:1.9em" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M15.07,11.25L14.17,12.17C13.45,12.89 13,13.5 13,15H11V14.5C11,13.39 11.45,12.39 12.17,11.67L13.41,10.41C13.78,10.05 14,9.55 14,9C14,7.89 13.1,7 12,7A2,2 0 0,0 10,9H8A4,4 0 0,1 12,5A4,4 0 0,1 16,9C16,9.88 15.64,10.67 15.07,11.25M13,19H11V17H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12C22,6.47 17.5,2 12,2Z" /></svg></a>
   <a class="title" href="./"><img src="./images/politiscales.png" alt="" width="60" height="60"><h1>PolitiScales</h1></a>
-  <select class="language" aria-label="Language"><option value="en" lang="en">English</option><option value="zh-Hant" lang="zh-Hant">繁體中文</option><option value="ja" lang="ja">日本語</option></select>
+  <select class="language" aria-label="Language" disabled><option value="en" lang="en">English</option><option value="zh-Hant" lang="zh-Hant">繁體中文</option><option value="ja" lang="ja">日本語</option></select>
 </div></header>`;
 
 for (const [source, type, route] of [
@@ -67,6 +67,7 @@ for (const [source, type, route] of [
     .replace(/<\?php if \(isset\(\$_GET\['lang'\]\)\) \{ echo "\?lang="\.\$_GET\['lang'\]; \} \?>/g, '')
     .replace(/href="\.\/(quiz|about|about_data|results)"/g, 'href="./$1/"')
     .replace('onclick="prev_question()"', 'onclick="prev_question(); return false;"')
+    .replaceAll('<button onclick="next_question(', '<button disabled onclick="next_question(')
     .replace('<h2 id="question-number">', '<h2 id="question-number" aria-live="polite">')
     .replace('<input type="checkbox">', '<input type="checkbox" aria-label="Dark mode">')
     .replace('<body>', '<body>\n<noscript><p class="simpleText">' + siteCopy.en.no_script + '</p></noscript>');

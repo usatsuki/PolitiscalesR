@@ -36,7 +36,7 @@ try {
     assert.ok(await page.locator('body').evaluate(element => element.classList.contains('darkbody')));
     await page.locator('[data-i18n="start_button"]').click();
     await ready(locale);
-    await page.waitForFunction(() => quizReady && questions.length === 117);
+    await page.waitForFunction(() => typeof quizReady !== 'undefined' && quizReady && questions.length === 117);
     await page.locator('.strong-agree').click();
     await page.locator('.disagree').click();
     await page.locator('#back_button').click();
@@ -89,11 +89,11 @@ try {
   page.on('pageerror', error => errors.push(error.message));
   await page.addInitScript(() => { Object.defineProperty(window, 'localStorage', { get() { throw new Error('Storage disabled'); } }); });
   await page.goto(base + 'quiz/');
-  await page.waitForFunction(() => quizReady && document.documentElement.lang === 'ja');
+  await page.waitForFunction(() => typeof quizReady !== 'undefined' && quizReady && document.documentElement.lang === 'ja');
   await page.goto(base + 'quiz/?lang=zh-TW');
-  await page.waitForFunction(() => quizReady && document.documentElement.lang === 'zh-Hant');
+  await page.waitForFunction(() => typeof quizReady !== 'undefined' && quizReady && document.documentElement.lang === 'zh-Hant');
   await page.goto(base + 'quiz/?lang=en-US');
-  await page.waitForFunction(() => quizReady && document.documentElement.lang === 'en');
+  await page.waitForFunction(() => typeof quizReady !== 'undefined' && quizReady && document.documentElement.lang === 'en');
   const sample = Buffer.from('c0=70&j1=45&b0=75').toString('base64');
   for (const suffix of ['?' + sample, '?lang=ja&data=' + encodeURIComponent(sample), '?lang=ja#not-valid']) {
     await page.goto(base + 'results/' + suffix);
