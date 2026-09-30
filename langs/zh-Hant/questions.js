@@ -1,7 +1,7 @@
 var questions = [
     // Constructivism/Essentialism
     {
-        question: "「人は女に生まれるのではない、女になるのだ。」",
+        question: "「女人不是天生的，而是後天形成的。」",
         answer: 0,
         valuesYes: [
             {
@@ -19,7 +19,7 @@ var questions = [
             }]
     },
     {
-        question: "私たちの社会における扱いや生活の質の違いは、人種差別が今も至るところに存在することを示している。",
+        question: "我們社會中待遇與生活品質的差異，顯示種族主義依然無所不在。",
         answer: 0,
         valuesYes: [{
                 axis: 'c0',
@@ -31,7 +31,7 @@ var questions = [
             }]
     },
     {
-        question: "化学や生物学を含め、あらゆる科学は社会から独立した絶対的なものではなく、社会の影響を受けている。",
+        question: "所有科學，包括化學與生物學，都不是完全不受影響的，而是受到社會條件所形塑。",
         answer: 0,
         valuesYes: [{
                 axis: 'c0',
@@ -43,7 +43,7 @@ var questions = [
             }]
     },
     {
-        question: "「女性」と「男性」という分類は社会的に構築されたものであり、なくすべきだ。",
+        question: "「女性」與「男性」是社會建構出來的分類，應予以捨棄。",
         answer: 0,
         valuesYes: [
             {
@@ -61,7 +61,7 @@ var questions = [
             }]
     },
     {
-        question: "生まれつき犯罪を犯しやすい人などいない。",
+        question: "沒有人天生就有犯罪傾向。",
         answer: 0,
         valuesYes: [{
                 axis: 'c0',
@@ -73,7 +73,7 @@ var questions = [
             }]
     },
     {
-        question: "性的指向は社会的に構築されるものだ。",
+        question: "性傾向是一種社會建構。",
         answer: 0,
         valuesYes: [{
                 axis: 'c0',
@@ -85,7 +85,7 @@ var questions = [
             }]
     },
     {
-        question: "民族集団間の社会的な違いは、生物学では説明できない。",
+        question: "族群之間的社會差異，無法用生物學來解釋。",
         answer: 0,
         valuesYes: [{
                 axis: 'c0',
@@ -97,7 +97,7 @@ var questions = [
             }]
     },
     {
-        question: "女性と男性の社会的役割は、生物学的な違いによって部分的に説明できる。",
+        question: "女性與男性的社會角色，部分可以用生理差異來解釋。",
         answer: 0,
         valuesYes: [{
                 axis: 'c1',
@@ -115,7 +115,7 @@ var questions = [
         ]
     },
     {
-        question: "女性と男性の個人的な特性の違いの一部は、ホルモンの違いによって説明できる。",
+        question: "荷爾蒙差異可以解釋女性與男性在個人特質上的部分差異。",
         answer: 0,
         valuesYes: [{
                 axis: 'c1',
@@ -133,7 +133,7 @@ var questions = [
         ]
     },
     {
-        question: "性的暴行の原因の一部は、生まれつき備わった衝動にある。",
+        question: "性侵害的成因，部分來自天生的衝動。",
         answer: 0,
         valuesYes: [{
                 axis: 'c1',
@@ -151,7 +151,7 @@ var questions = [
         ]
     },
     {
-        question: "トランスジェンダーの人は、自分が認識しているジェンダーに本当の意味でなることは決してない。",
+        question: "跨性別者永遠不會真正成為自己所認同的性別。",
         answer: 0,
         valuesYes: [{
                 axis: 'c1',
@@ -163,7 +163,7 @@ var questions = [
             }]
     },
     {
-        question: "ある国民や文化に属する人々には、その人々を特徴づける変わることのない性質がある。",
+        question: "屬於同一民族或文化的人，具有某些界定其身分、無法改變的特質。",
         answer: 0,
         valuesYes: [{
                 axis: 'c1',
@@ -175,7 +175,7 @@ var questions = [
             }]
     },
     {
-        question: "生物学的に、人間は異性愛をするようにできている。",
+        question: "從生物學角度來看，人類天生就應該是異性戀。",
         answer: 0,
         valuesYes: [{
                 axis: 'c1',
@@ -187,7 +187,7 @@ var questions = [
             }]
     },
     {
-        question: "状況にかかわらず、人間を動かす最も強い原動力は利己心だ。",
+        question: "無論處於何種情境，自私都是人類最主要的行為動力。",
         answer: 0,
         valuesYes: [{
                 axis: 'c1',
@@ -200,7 +200,7 @@ var questions = [
     },
     // Internationalism/Nationalism
     {
-        question: "国境はいずれ廃止されるべきだ。",
+        question: "國界最終應該被廢除。",
         answer: 0,
         valuesYes: [{
                 axis: 'b0',
@@ -212,7 +212,7 @@ var questions = [
             }]
     },
     {
-        question: "たとえ自国を裏切ることになっても、人は自分の理想を貫くべきだ。",
+        question: "人們必須堅持自己的理想，即使這會導致他們背叛自己的國家。",
         answer: 0,
         valuesYes: [{
                 axis: 'b0',
@@ -224,7 +224,7 @@ var questions = [
             }]
     },
     {
-        question: "自国が他国で犯した犯罪による損害は、自国が賠償しなければならない。",
+        question: "我的國家必須賠償它在其他國家所犯下的罪行造成的損害。",
         answer: 0,
         valuesYes: [{
                 axis: 'b0',
@@ -236,7 +236,7 @@ var questions = [
             }]
     },
     {
-        question: "2つの国の経済、社会制度、環境基準が似ていれば、両国間の自由市場が悪影響をもたらすことはない。",
+        question: "如果兩個國家的經濟、社會制度與環境規範相近，那麼兩國之間的自由市場就不會造成負面影響。",
         answer: 0,
         valuesYes: [{
                 axis: 'b0',
@@ -248,7 +248,7 @@ var questions = [
             }]
     },
     {
-        question: "スポーツの試合で、自国を優越視して他国を見下すことは容認できない。",
+        question: "體育競賽中的國族沙文主義是不可接受的。",
         answer: 0,
         valuesYes: [{
                 axis: 'b0',
@@ -260,7 +260,7 @@ var questions = [
             }]
     },
     {
-        question: "私は、自国の住民にも他国の住民にも、同じように関心を持っている。",
+        question: "我同樣關心本國與其他國家的居民。",
         answer: 0,
         valuesYes: [{
                 axis: 'b0',
@@ -272,7 +272,7 @@ var questions = [
             }]
     },
     {
-        question: "自国に住む外国人には、その国の国籍を持つ人と同じように政治活動をする権利を認めるべきだ。",
+        question: "居住在我國的外國人，應與具有本國國籍的人享有平等參與政治活動的權利。",
         answer: 0,
         valuesYes: [{
                 axis: 'b0',
@@ -284,7 +284,7 @@ var questions = [
             }]
     },
     {
-        question: "外国人よりも自国民を優先するべきだ。",
+        question: "本國公民應比外國人獲得優先待遇。",
         answer: 0,
         valuesYes: [{
                 axis: 'b1',
@@ -296,7 +296,7 @@ var questions = [
             }]
     },
     {
-        question: "自国の価値観は、他国の価値観よりも優れている。",
+        question: "我國的價值觀優於其他國家的價值觀。",
         answer: 0,
         valuesYes: [{
                 axis: 'b1',
@@ -308,7 +308,7 @@ var questions = [
             }]
     },
     {
-        question: "多文化主義は、私たちの社会にとって脅威だ。",
+        question: "多元文化主義對我們的社會構成威脅。",
         answer: 0,
         valuesYes: [{
                 axis: 'b1',
@@ -320,7 +320,7 @@ var questions = [
             }]
     },
     {
-        question: "よい市民とは、愛国者である。",
+        question: "好公民就是愛國者。",
         answer: 0,
         valuesYes: [{
                 axis: 'b1',
@@ -332,7 +332,7 @@ var questions = [
             }]
     },
     {
-        question: "自国の経済的利益を守るために、他国へ軍事介入することは正当だ。",
+        question: "國家為了捍衛自身經濟利益而進行軍事干預，是正當的。",
         answer: 0,
         valuesYes: [{
                 axis: 'b1',
@@ -344,7 +344,7 @@ var questions = [
             }]
     },
     {
-        question: "国民としての帰属意識を育てるために、歴史を教える必要がある。",
+        question: "有必要透過歷史教育，培養對國家的歸屬感。",
         answer: 0,
         valuesYes: [{
                 axis: 'b1',
@@ -356,7 +356,7 @@ var questions = [
             }]
     },
     {
-        question: "自国の研究成果を、他国が利用できるようにするべきではない。",
+        question: "我國的研究成果不應提供給其他國家。",
         answer: 0,
         valuesYes: [{
                 axis: 'b1',
@@ -369,7 +369,7 @@ var questions = [
     },
     // Communism/Capitalism
     {
-        question: "企業、住宅、土地を所有することで裕福になる人がいてはならない。",
+        question: "任何人都不應因為擁有企業、住宅或土地而致富。",
         answer: 0,
         valuesYes: [{
                 axis: 'p0',
@@ -381,7 +381,7 @@ var questions = [
             }]
     },
     {
-        question: "賃金労働は、企業が労働者から富を盗む仕組みの一つだ。",
+        question: "雇傭勞動是企業竊取勞工勞動成果的一種形式。",
         answer: 0,
         valuesYes: [{
                 axis: 'p0',
@@ -393,7 +393,7 @@ var questions = [
             }]
     },
     {
-        question: "医療・保健を公共の領域にとどめることは重要だ。",
+        question: "醫療保健必須持續由公共部門負責。",
         answer: 0,
         valuesYes: [{
                 axis: 'p0',
@@ -405,7 +405,7 @@ var questions = [
             }]
     },
     {
-        question: "エネルギーと交通のインフラは、公共のものとするべきだ。",
+        question: "能源與運輸基礎設施應由公共部門負責。",
         answer: 0,
         valuesYes: [{
                 axis: 'p0',
@@ -417,7 +417,7 @@ var questions = [
             }]
     },
     {
-        question: "特許は存在するべきではない。",
+        question: "專利制度不應存在。",
         answer: 0,
         valuesYes: [{
                 axis: 'p0',
@@ -429,7 +429,7 @@ var questions = [
             }]
     },
     {
-        question: "消費者の必要に応じて生産物を配分するための会議体を設ける必要がある。",
+        question: "有必要設立議事機構，依照消費者的需求分配生產品。",
         answer: 0,
         valuesYes: [{
                 axis: 'p0',
@@ -441,7 +441,7 @@ var questions = [
             }]
     },
     {
-        question: "労働市場は労働者を奴隷にしている。",
+        question: "勞動市場奴役了勞工。",
         answer: 0,
         valuesYes: [{
                 axis: 'p0',
@@ -453,7 +453,7 @@ var questions = [
             }]
     },
     {
-        question: "自分の利益を追求することは、経済にとって健全だ。",
+        question: "追求自身利益有益於經濟。",
         answer: 0,
         valuesYes: [{
                 axis: 'p1',
@@ -465,7 +465,7 @@ var questions = [
             }]
     },
     {
-        question: "個人間の富の格差は、能力や功績の違いによって説明できる。",
+        question: "兩個人之間的財富差距，反映了他們各自的能力與努力。",
         answer: 0,
         valuesYes: [{
                 axis: 'p1',
@@ -477,7 +477,7 @@ var questions = [
             }]
     },
     {
-        question: "私立の学校や大学があることに問題はない。",
+        question: "有些學校與大學是私立的，這並不是問題。",
         answer: 0,
         valuesYes: [{
                 axis: 'p1',
@@ -489,7 +489,7 @@ var questions = [
             }]
     },
     {
-        question: "生産を改善するためには、海外移転や外部委託は必要悪だ。",
+        question: "為了提高生產，將業務移往海外與外包是必要之惡。",
         answer: 0,
         valuesYes: [{
                 axis: 'p1',
@@ -501,7 +501,7 @@ var questions = [
             }]
     },
     {
-        question: "裕福な人と貧しい人がいることは容認できる。",
+        question: "社會上有富人與窮人，是可以接受的。",
         answer: 0,
         valuesYes: [{
                 axis: 'p1',
@@ -513,7 +513,7 @@ var questions = [
             }]
     },
     {
-        question: "一部の産業部門が民間の所有であることは容認できる。",
+        question: "某些產業屬於私人所有，是可以接受的。",
         answer: 0,
         valuesYes: [{
                 axis: 'p1',
@@ -525,7 +525,7 @@ var questions = [
             }]
     },
     {
-        question: "銀行は民間の所有であり続けるべきだ。",
+        question: "銀行應維持私有。",
         answer: 0,
         valuesYes: [{
                 axis: 'p1',
@@ -538,7 +538,7 @@ var questions = [
     },
     // Regulation/Laissez-faire
     {
-        question: "富を再分配するために、所得と資本に課税するべきだ。",
+        question: "應對所得與資本課稅，以重新分配財富。",
         answer: 0,
         valuesYes: [{
                 axis: 'm0',
@@ -550,7 +550,7 @@ var questions = [
             }]
     },
     {
-        question: "私たちは、もっと早い年齢で引退できるようになるべきだ。",
+        question: "我們應該更早退休。",
         answer: 0,
         valuesYes: [{
                 axis: 'm0',
@@ -562,7 +562,7 @@ var questions = [
             }]
     },
     {
-        question: "正当な理由がない限り、従業員の解雇は禁止するべきだ。",
+        question: "除非有正當理由，否則應禁止解僱員工。",
         answer: 0,
         valuesYes: [{
                 axis: 'm0',
@@ -574,7 +574,7 @@ var questions = [
             }]
     },
     {
-        question: "労働者が働いて得た収入で生活できるよう、最低限の賃金を保障するべきだ。",
+        question: "應保障最低薪資，確保勞工能靠工作維持生活。",
         answer: 0,
         valuesYes: [{
                 axis: 'm0',
@@ -586,7 +586,7 @@ var questions = [
             }]
     },
     {
-        question: "民間企業による独占を防ぐ必要がある。",
+        question: "有必要避免私人壟斷。",
         answer: 0,
         valuesYes: [{
                 axis: 'm0',
@@ -598,7 +598,7 @@ var questions = [
             }]
     },
     {
-        question: "公共部門（国、地域、自治体）が借りたお金は、必ずしも返済する必要はない。",
+        question: "公共部門（國家、地區、地方政府）所借的債務，不一定必須償還。",
         answer: 0,
         valuesYes: [{
                 axis: 'm0',
@@ -610,7 +610,7 @@ var questions = [
             }]
     },
     {
-        question: "一部の産業部門や雇用形態には、財政的な支援を行うべきだ。",
+        question: "應為某些產業或工作類型提供財政補助。",
         answer: 0,
         valuesYes: [{
                 axis: 'm0',
@@ -622,7 +622,7 @@ var questions = [
             }]
     },
     {
-        question: "市場経済は、規制されていないときに最もよく機能する。",
+        question: "市場經濟在不受管制時，運作最為理想。",
         answer: 0,
         valuesYes: [{
                 axis: 'm1',
@@ -634,7 +634,7 @@ var questions = [
             }]
     },
     {
-        question: "今日、労働者は雇用主と契約を結ぶ際に、自由に選択できる。",
+        question: "現今，受僱者在與未來雇主簽訂契約時，可以自由選擇。",
         answer: 0,
         valuesYes: [{
                 axis: 'm1',
@@ -646,7 +646,7 @@ var questions = [
             }]
     },
     {
-        question: "企業の雇用を促すために、労働法の規制を撤廃する必要がある。",
+        question: "有必要解除勞動法規中的限制，以鼓勵企業僱用員工。",
         answer: 0,
         valuesYes: [{
                 axis: 'm1',
@@ -658,7 +658,7 @@ var questions = [
             }]
     },
     {
-        question: "法律で認められている週の労働時間の上限を引き上げるべきだ。",
+        question: "應提高每週法定工時上限。",
         answer: 0,
         valuesYes: [{
                 axis: 'm1',
@@ -670,7 +670,7 @@ var questions = [
             }]
     },
     {
-        question: "環境基準は、行政機関ではなく、消費者全体の消費行動によって左右されるべきだ。",
+        question: "環境規範應由大眾的消費行為來影響，而非由主管機關主導。",
         answer: 0,
         valuesYes: [{
                 axis: 'm1',
@@ -682,7 +682,7 @@ var questions = [
             }]
     },
     {
-        question: "社会的な生活支援は、人々の働く意欲をそぐ。",
+        question: "社會救助會降低人們工作的意願。",
         answer: 0,
         valuesYes: [{
                 axis: 'm1',
@@ -694,7 +694,7 @@ var questions = [
             }]
     },
     {
-        question: "国営企業も民間企業のように経営し、競争や収益性といった市場の論理に従うべきだ。",
+        question: "國營企業應像民營企業一樣管理，並遵循市場邏輯，例如競爭、獲利等。",
         answer: 0,
         valuesYes: [{
                 axis: 'm1',
@@ -707,7 +707,7 @@ var questions = [
     },
     // Progressive/Conservative
     {
-        question: "伝統は問い直すべきだ。",
+        question: "傳統應受到質疑。",
         answer: 0,
         valuesYes: [{
                 axis: 's0',
@@ -719,7 +719,7 @@ var questions = [
             }]
     },
     {
-        question: "自国で別の公用語が追加されても、現在の公用語に取って代わっても、私はかまわない。",
+        question: "如果我國增加其他官方語言，或以其他語言取代現有官方語言，我都可以接受。",
         answer: 0,
         valuesYes: [{
                 axis: 's0',
@@ -731,7 +731,7 @@ var questions = [
             }]
     },
     {
-        question: "婚姻制度は廃止するべきだ。",
+        question: "婚姻制度應該被廢除。",
         answer: 0,
         valuesYes: [
             {
@@ -749,7 +749,7 @@ var questions = [
             }]
     },
     {
-        question: "外国人は私たちの文化を豊かにする。",
+        question: "外國人豐富了我們的文化。",
         answer: 0,
         valuesYes: [{
                 axis: 's0',
@@ -761,7 +761,7 @@ var questions = [
             }]
     },
     {
-        question: "宗教の影響力は小さくなるべきだ。",
+        question: "宗教的影響力應該降低。",
         answer: 0,
         valuesYes: [{
                 axis: 's0',
@@ -773,7 +773,7 @@ var questions = [
             }]
     },
     {
-        question: "言語を決めるのは、学者ではなく、それを使う人々だ。",
+        question: "語言是由使用者來定義的，而非由學者定義。",
         answer: 0,
         valuesYes: [{
                 axis: 's0',
@@ -785,7 +785,7 @@ var questions = [
             }]
     },
     {
-        question: "安楽死を認めるべきだ。",
+        question: "安樂死應該合法化。",
         answer: 0,
         valuesYes: [{
                 axis: 's0',
@@ -797,7 +797,7 @@ var questions = [
             }]
     },
     {
-        question: "同性愛者を、結婚、親子関係、養子縁組、子どもを持つことに関して、異性愛者と平等に扱うべきではない。",
+        question: "在婚姻、親子關係、收養或生育方面，同性戀者不應享有與異性戀者平等的待遇。",
         answer: 0,
         valuesYes: [{
                 axis: 's1',
@@ -809,7 +809,7 @@ var questions = [
             }]
     },
     {
-        question: "特定の状況では、死刑は正当化される。",
+        question: "在某些特定情況下，死刑是正當的。",
         answer: 0,
         valuesYes: [
             {
@@ -833,7 +833,7 @@ var questions = [
         ]
     },
     {
-        question: "技術の進歩によって、社会があまりに速く変わってはならない。",
+        question: "科技進步不應讓社會改變得太快。",
         answer: 0,
         valuesYes: [{
                 axis: 's1',
@@ -845,7 +845,7 @@ var questions = [
             }]
     },
     {
-        question: "学校は主に、私たちの価値観、伝統、基礎的な知識を教えるべきだ。",
+        question: "學校應以傳授我們的價值觀、傳統與基本知識為主。",
         answer: 0,
         valuesYes: [{
                 axis: 's1',
@@ -857,7 +857,7 @@ var questions = [
             }]
     },
     {
-        question: "人工妊娠中絶は、特定の場合に限って認めるべきだ。",
+        question: "墮胎應僅限於特定情況。",
         answer: 0,
         valuesYes: [{
                 axis: 's1',
@@ -875,7 +875,7 @@ var questions = [
         ]
     },
     {
-        question: "カップルの主な目的は、少なくとも1人の子どもを持つことだ。",
+        question: "伴侶關係的主要目標，是至少生育一名子女。",
         answer: 0,
         valuesYes: [{
                 axis: 's1',
@@ -887,7 +887,7 @@ var questions = [
             }]
     },
     {
-        question: "性行為の本来の意味を守るために、避妊よりも禁欲を選ぶべきだ。",
+        question: "為了維護性行為的真正本質，應優先選擇禁慾，而非避孕。",
         answer: 0,
         valuesYes: [{
                 axis: 's1',
@@ -900,7 +900,7 @@ var questions = [
     },
     // Ecology/Production
     {
-        question: "人間の行動によって生物の種が絶滅することは容認できない。",
+        question: "人類活動導致物種滅絕，是不可接受的。",
         answer: 0,
         valuesYes: [{
                 axis: 'e0',
@@ -912,7 +912,7 @@ var questions = [
             }]
     },
     {
-        question: "研究や医療以外の目的では、遺伝子組み換え生物を禁止するべきだ。",
+        question: "除了研究與醫療用途之外，應禁止使用基因改造生物。",
         answer: 0,
         valuesYes: [{
                 axis: 'e0',
@@ -924,7 +924,7 @@ var questions = [
             }]
     },
     {
-        question: "地球温暖化に立ち向かわなければならない。",
+        question: "我們必須對抗全球暖化。",
         answer: 0,
         valuesYes: [{
                 axis: 'e0',
@@ -936,7 +936,7 @@ var questions = [
             }]
     },
     {
-        question: "自然の搾取を抑えるために、食生活の変化を受け入れるべきだ。",
+        question: "我們應接受飲食消費方式的改變，以減少對自然的開發與利用。",
         answer: 0,
         valuesYes: [{
                 axis: 'e0',
@@ -948,7 +948,7 @@ var questions = [
             }]
     },
     {
-        question: "収穫量が少なくなっても、食料となる生物の多様性を守る農業を奨励することが重要だ。",
+        question: "鼓勵能維護食物來源之生物多樣性的農業很重要，即使產量較低也一樣。",
         answer: 0,
         valuesYes: [{
                 axis: 'e0',
@@ -960,7 +960,7 @@ var questions = [
             }]
     },
     {
-        question: "都市以外の地域の生態系を守ることは、雇用を生み出すことよりも重要だ。",
+        question: "保護非都市地區的生態系，比創造就業機會更重要。",
         answer: 0,
         valuesYes: [{
                 axis: 'e0',
@@ -972,7 +972,7 @@ var questions = [
             }]
     },
     {
-        question: "廃棄物を減らすためには、生産を減らすべきだ。",
+        question: "應透過減少生產來減少廢棄物。",
         answer: 0,
         valuesYes: [{
                 axis: 'e0',
@@ -984,7 +984,7 @@ var questions = [
             }]
     },
     {
-        question: "宇宙への入植は、地球上の原材料（鉄、希少金属、燃料など）の不足を補うためのよい解決策だ。",
+        question: "太空殖民是解決地球原物料短缺（例如鐵、稀有金屬、燃料等）的好方法。",
         answer: 0,
         valuesYes: [{
                 axis: 'e1',
@@ -996,7 +996,7 @@ var questions = [
             }]
     },
     {
-        question: "人間の生活の質を高めるために、生態系を長期にわたって変えることは正当だ。",
+        question: "為了提高人類的生活品質，長期改變生態系是正當的。",
         answer: 0,
         valuesYes: [{
                 axis: 'e1',
@@ -1008,7 +1008,7 @@ var questions = [
             }]
     },
     {
-        question: "生産性を高めるために、研究へ大規模に投資する必要がある。",
+        question: "有必要大幅投資研究，以提高生產力。",
         answer: 0,
         valuesYes: [{
                 axis: 'e1',
@@ -1020,7 +1020,7 @@ var questions = [
             }]
     },
     {
-        question: "トランスヒューマニズムは、人間の能力を高められるため、有益なものになる。",
+        question: "超人類主義能讓我們提升自身能力，因此將帶來益處。",
         answer: 0,
         valuesYes: [{
                 axis: 'e1',
@@ -1032,7 +1032,7 @@ var questions = [
             }]
     },
     {
-        question: "適切に管理された核分裂は、優れたエネルギー源だ。",
+        question: "核分裂發電在維護良好的情況下，是優良的能源來源。",
         answer: 0,
         valuesYes: [{
                 axis: 'e1',
@@ -1044,7 +1044,7 @@ var questions = [
             }]
     },
     {
-        question: "化石燃料の利用は必要だ。",
+        question: "開採與使用化石燃料是必要的。",
         answer: 0,
         valuesYes: [{
                 axis: 'e1',
@@ -1056,7 +1056,7 @@ var questions = [
             }]
     },
     {
-        question: "高い経済成長を維持することを、政府の目標とするべきだ。",
+        question: "維持強勁的經濟成長應是政府的目標之一。",
         answer: 0,
         valuesYes: [{
                 axis: 'e1',
@@ -1069,7 +1069,7 @@ var questions = [
     },
     // Rehabilitative Justice/Punitive Justice
     {
-        question: "刑務所は廃止するべきだ。",
+        question: "監獄不應再存在。",
         answer: 0,
         valuesYes: [{
                 axis: 'j0',
@@ -1081,7 +1081,7 @@ var questions = [
             }]
     },
     {
-        question: "犯罪に対して刑罰の下限を定めることは不公正だ。",
+        question: "為違法或犯罪行為設定最低刑度，是不公正的。",
         answer: 0,
         valuesYes: [{
                 axis: 'j0',
@@ -1093,7 +1093,7 @@ var questions = [
             }]
     },
     {
-        question: "出所した人の社会復帰を支援するべきだ。",
+        question: "應協助出獄者重新融入社會。",
         answer: 0,
         valuesYes: [{
                 axis: 'j0',
@@ -1105,7 +1105,7 @@ var questions = [
             }]
     },
     {
-        question: "司法は常に、有罪となった人の置かれた状況や過去を考慮し、それに応じて刑罰を調整するべきだ。",
+        question: "司法應始終考量受刑人的處境與過往，並據此調整刑罰。",
         answer: 0,
         valuesYes: [{
                 axis: 'j0',
@@ -1117,7 +1117,7 @@ var questions = [
             }]
     },
     {
-        question: "刑務所内の生活環境を大幅に改善するべきだ。",
+        question: "監獄中的生活條件應大幅改善。",
         answer: 0,
         valuesYes: [{
                 axis: 'j0',
@@ -1129,7 +1129,7 @@ var questions = [
             }]
     },
     {
-        question: "個人情報の記録と保存は厳しく制限し、データベース間の照合は禁止するべきだ。",
+        question: "個人資料的建檔與保存應受到嚴格限制，並應禁止跨資料庫交叉比對。",
         answer: 0,
         valuesYes: [{
                 axis: 'j0',
@@ -1141,7 +1141,7 @@ var questions = [
             }]
     },
     {
-        question: "インターネット上で匿名でいる権利を保障するべきだ。",
+        question: "應保障在網際網路上保持匿名的權利。",
         answer: 0,
         valuesYes: [{
                 axis: 'j0',
@@ -1153,7 +1153,7 @@ var questions = [
             }]
     },
     {
-        question: "司法制度の目的は、法律を破った人を罰することであるべきだ。",
+        question: "司法制度的目的應是懲罰違法者。",
         answer: 0,
         valuesYes: [{
                 axis: 'j1',
@@ -1165,7 +1165,7 @@ var questions = [
             }]
     },
     {
-        question: "警察は武装するべきだ。",
+        question: "警察應配備武器。",
         answer: 0,
         valuesYes: [{
                 axis: 'j1',
@@ -1177,7 +1177,7 @@ var questions = [
             }]
     },
     {
-        question: "テロ行為から身を守るためには、市民的自由の一部を犠牲にする必要がある。",
+        question: "為了防範恐怖攻擊，有必要犧牲部分公民自由。",
         answer: 0,
         valuesYes: [{
                 axis: 'j1',
@@ -1189,7 +1189,7 @@ var questions = [
             }]
     },
     {
-        question: "どのような状況でも、秩序と権威を尊重するべきだ。",
+        question: "在任何情況下，都應尊重秩序與權威。",
         answer: 0,
         valuesYes: [{
                 axis: 'j1',
@@ -1201,7 +1201,7 @@ var questions = [
             }]
     },
     {
-        question: "重い刑罰には抑止力があるため、効果的だ。",
+        question: "重刑具有嚇阻作用，因此是有效的。",
         answer: 0,
         valuesYes: [{
                 axis: 'j1',
@@ -1213,7 +1213,7 @@ var questions = [
             }]
     },
     {
-        question: "危険性のある人については、犯罪を犯す危険を冒すよりも、事前に逮捕するほうがよい。",
+        question: "與其冒著讓潛在危險人物犯罪的風險，不如事先將其逮捕。",
         answer: 0,
         valuesYes: [{
                 axis: 'j1',
@@ -1226,7 +1226,7 @@ var questions = [
     },
     // Revolution/Reform
     {
-        question: "大規模なストライキは、新たな権利を獲得するためのよい手段だ。",
+        question: "大規模罷工是爭取新權利的好方法。",
         answer: 0,
         valuesYes: [{
                 axis: 't0',
@@ -1238,7 +1238,7 @@ var questions = [
             }]
     },
     {
-        question: "国内での武装闘争が必要な場合もある。",
+        question: "在一個國家內，武裝鬥爭有時是必要的。",
         answer: 0,
         valuesYes: [{
                 axis: 't0',
@@ -1250,7 +1250,7 @@ var questions = [
             }]
     },
     {
-        question: "社会を根本から変えるには、蜂起が必要だ。",
+        question: "要徹底改變社會，起義是必要的。",
         answer: 0,
         valuesYes: [{
                 axis: 't0',
@@ -1262,7 +1262,7 @@ var questions = [
             }]
     },
     {
-        question: "既存の政治組織で活動しても、社会を変えることにはつながらない。",
+        question: "在現有政治組織中參與倡議行動，無助於改變社會。",
         answer: 0,
         valuesYes: [{
                 axis: 't0',
@@ -1274,7 +1274,7 @@ var questions = [
             }]
     },
     {
-        question: "国家が実施する選挙では、既存の権力を揺るがすことはできない。",
+        question: "由國家舉辦的選舉，無法挑戰現有的權力結構。",
         answer: 0,
         valuesYes: [{
                 axis: 't0',
@@ -1286,7 +1286,7 @@ var questions = [
             }]
     },
     {
-        question: "ハッキングは、政治闘争の正当な手段の一つだ。",
+        question: "駭客行動在政治鬥爭中有其正當性。",
         answer: 0,
         valuesYes: [{
                 axis: 't0',
@@ -1298,7 +1298,7 @@ var questions = [
             }]
     },
     {
-        question: "特定の条件のもとでは、破壊活動は正当だ。",
+        question: "蓄意破壞在某些情況下是正當的。",
         answer: 0,
         valuesYes: [{
                 axis: 't0',
@@ -1310,7 +1310,7 @@ var questions = [
             }]
     },
     {
-        question: "活動家は常に、法律を厳格に守って行動しなければならない。",
+        question: "社會運動參與者必須始終嚴格依法行動。",
         answer: 0,
         valuesYes: [{
                 axis: 't1',
@@ -1322,7 +1322,7 @@ var questions = [
             }]
     },
     {
-        question: "革命は必ず悪い結末を迎える。",
+        question: "革命最終總會帶來不好的結果。",
         answer: 0,
         valuesYes: [{
                 axis: 't1',
@@ -1334,7 +1334,7 @@ var questions = [
             }]
     },
     {
-        question: "制度を根本的に変えることは逆効果だ。段階的に変えていくべきだ。",
+        question: "徹底改變制度會適得其反；我們應逐步改革制度。",
         answer: 0,
         valuesYes: [{
                 axis: 't1',
@@ -1346,7 +1346,7 @@ var questions = [
             }]
     },
     {
-        question: "個人に対する暴力は、決して有益な結果を生まない。",
+        question: "對個人施加暴力，永遠無法帶來有益的成果。",
         answer: 0,
         valuesYes: [{
                 axis: 't1',
@@ -1358,7 +1358,7 @@ var questions = [
             }]
     },
     {
-        question: "暴力を使う抗議者とは、常に距離を置くべきだ。",
+        question: "我們應始終與使用暴力的抗議者保持距離。",
         answer: 0,
         valuesYes: [{
                 axis: 't1',
@@ -1370,7 +1370,7 @@ var questions = [
             }]
     },
     {
-        question: "自分たちの考えを実現するためには、反対勢力と妥協する必要がある。",
+        question: "為了實現我們的理念，有必要與反對者妥協。",
         answer: 0,
         valuesYes: [{
                 axis: 't1',
@@ -1382,7 +1382,7 @@ var questions = [
             }]
     },
     {
-        question: "個人の生活様式の変化は、社会の変化につながることがある。",
+        question: "個人生活方式的改變，可以促成社會的改變。",
         answer: 0,
         valuesYes: [{
                 axis: 't1',
@@ -1395,7 +1395,7 @@ var questions = [
     },
     // Bonus Badges
     {
-        question: "自分の宗教を、できるだけ広く布教しなければならない。",
+        question: "我的宗教必須盡可能廣泛傳播。",
         answer: 0,
         valuesYes: [{
                 axis: 'reli',
@@ -1404,7 +1404,7 @@ var questions = [
         valuesNo: []
     },
     {
-        question: "世界を意図的かつ秘密裏に支配しているのは、ごく少数の人々からなる集団だ。",
+        question: "世界是由一小群人有意識地祕密操控的。",
         answer: 0,
         valuesYes: [{
                 axis: 'comp',
@@ -1413,7 +1413,7 @@ var questions = [
         valuesNo: []
     },
     {
-        question: "よい政策とは、イデオロギーにとらわれない実用的な政策だ。",
+        question: "好的政策應以務實為本，不受意識形態影響。",
         answer: 0,
         valuesYes: [{
                 axis: 'prag',
@@ -1422,7 +1422,7 @@ var questions = [
         valuesNo: []
     },
     {
-        question: "人々を団結させ、自国の主権を守るために、君主制を設ける必要がある。",
+        question: "我們需要建立君主制，以團結人民並維護主權。",
         answer: 0,
         valuesYes: [{
                 axis: 'mona',
@@ -1431,7 +1431,7 @@ var questions = [
         valuesNo: []
     },
     {
-        question: "人間は動物を食べても、搾取してもならない。",
+        question: "人類既不應食用動物，也不應剝削動物。",
         answer: 0,
         valuesYes: [{
                 axis: 'vega',
@@ -1440,7 +1440,7 @@ var questions = [
         valuesNo: []
     },
     {
-        question: "国家は廃止するべきだ。",
+        question: "國家應該被廢除。",
         answer: 0,
         valuesYes: [{
                 axis: 'anar',

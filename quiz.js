@@ -1,24 +1,27 @@
-language = localStorage.getItem("language") || navigator.language || navigator.userLanguage;
+var questions = [];
+var qn = 0;
+var quizReady = false;
+var now = new Date();
+var quizSeed = new Date(now.getFullYear(), now.getMonth(), now.getDate()) / 1000;
 
-// Choosing right translation file
-
-jQuery.loadScript = function (url, callback) {
-    jQuery.ajax({
-        url: url,
-        dataType: 'script',
-        success: callback,
-        async: false
-    });
+async function loadQuizLanguage(language) {
+  quizReady = false;
+  var answers = questions.map(function (question) { return question.answer; });
+  await new Promise(function (resolve, reject) {
+    var script = document.createElement('script');
+    script.src = new URL('langs/' + language + '/questions.js', window.PolitiScales.baseUrl).href;
+    script.onload = function () { script.remove(); resolve(); };
+    script.onerror = function () { script.remove(); reject(new Error('Question file failed to load')); };
+    document.head.appendChild(script);
+  });
+  shuffle(questions, quizSeed);
+  questions.forEach(function (question, index) {
+    if (index < answers.length) question.answer = answers[index];
+  });
+  quizReady = true;
+  init_question();
+  document.querySelectorAll('.questionButtons button').forEach(function (button) { button.disabled = false; });
 }
-
-$.loadScript('./langs/' + language + '/questions.js', function(){
-  var now = new Date();
-  var startOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-  var timestamp = startOfDay / 1000;
-
-  // We shuffle questions once they have been dl with a different seed every day
-  shuffle(questions, timestamp);
-});
 
 start_time();
 
@@ -70,7 +73,7 @@ function init_question() {
   question_string = $.i18n("question")
   ques_of_string = $.i18n("of")
 
-  document.getElementById("question-text").innerHTML = questions[qn].question;
+  document.getElementById("question-text").textContent = questions[qn].question;
   document.getElementById(
     "question-number"
   ).innerHTML = question_string +" "+ (qn + 1) +" "+  ques_of_string +" "+ questions.length
@@ -85,6 +88,7 @@ function init_question() {
 }
 
 function next_question(mult) {
+  if (!quizReady || qn >= questions.length) return;
   questions[qn].answer = mult;
   qn++;
 
@@ -95,7 +99,7 @@ function next_question(mult) {
   }
 }
 function prev_question() {
-  if (qn == 0) {
+  if (!quizReady || qn == 0) {
     return;
   }
   qn--;
@@ -151,12 +155,10 @@ function results() {
     }
   }
 
-  base64_url = window.btoa(url);
-  quiz_time = end_time();
-  $.post("save",{"data": base64_url, "time": quiz_time})
-    .always(function() {
-      url = "./results?" + base64_url;
-      console.log("It tooks " + quiz_time + " seconds");
-      location.href = url;
-    });
+  quizReady = false;
+  var destination = new URL('results/', window.PolitiScales.baseUrl);
+  destination.searchParams.set('lang', window.PolitiScales.language);
+  // Fragments stay in the browser and are not sent to the hosting server.
+  destination.hash = window.btoa(url);
+  location.href = destination.href;
 }

@@ -5,7 +5,7 @@ body {
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", "Noto Sans TC", "Noto Sans JP", "Microsoft JhengHei", "Yu Gothic", Helvetica, Arial, sans-serif;
   font-size: calc(14px + 0.5vmin);
   background-color: #ebebeb;
   display: flex;
@@ -522,4 +522,26 @@ input[type="checkbox"] {
 .darkmode-btn input[type="checkbox"]:checked + span:after {
     background-color: #ebebeb;
     transform: translate(26px,0.5px);
+}
+
+/* Multilingual controls and readable CJK text on small screens. */
+.language { font: inherit; max-width: 10em; padding: 0.45em; border-radius: 4px; }
+.simpleText, .descText, .descTextMono, .questionBox { line-height: 1.7; overflow-wrap: anywhere; }
+.scale .axis { min-width: 0; }
+.scale .axis .label { font-size: clamp(12px, 2.5vmin, 24px); min-height: 2.5em; height: auto; padding-bottom: 0.3em; }
+.scale .axis .label > div { overflow-wrap: anywhere; }
+button:disabled { cursor: wait; opacity: 0.65; }
+a:focus-visible, button:focus-visible, select:focus-visible { outline: 3px solid #ffbd59; outline-offset: 3px; }
+.darkmode-btn:focus-within { outline: 3px solid #ffbd59; outline-offset: 3px; }
+@media (max-width: 540px) {
+  #header { flex-wrap: wrap; gap: 0.6em; padding: 0.8em 1em; }
+  #header .title { margin-right: 0; }
+  #header h1 { font-size: 1.6em; }
+  #header .title img { width: 42px; height: 42px; }
+  #header .language { margin-left: auto; }
+  #footer { gap: 1em; }
+  #footer p { padding-left: 0; font-size: 0.85em; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, [data-i18n] { animation: none !important; transition: none !important; }
 }

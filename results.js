@@ -1,15 +1,45 @@
+var resultsRenderVersion = 0;
 
 function init_results() {
+  var renderVersion = ++resultsRenderVersion;
+  var scorePayload = "";
+  var scores = {};
+  var currentUrl = new URL(window.location.href);
+  var queryParams = currentUrl.searchParams;
 
-  if ($.i18n().locale == "fr") {
-    var resultsUrl = location.href.replace(window.location.hostname+"/politiscales", "politiscales.fr").replace(window.location.hostname, "politiscales.fr");
-  } else {
-    var resultsUrl = location.href.replace(window.location.hostname+"/politiscales", "politiscales.party").replace(window.location.hostname, "politiscales.party");
+  if (currentUrl.hash) {
+    scorePayload = currentUrl.hash.substring(1);
+  } else if (queryParams.has("data")) {
+    scorePayload = queryParams.get("data");
+  } else if (currentUrl.search && !queryParams.has("lang")) {
+    scorePayload = currentUrl.search.substring(1);
   }
 
+  try {
+    scorePayload = decodeURIComponent(scorePayload);
+    var decodedScores = window.atob(scorePayload);
+    if (decodedScores && !/^(?:[a-z][a-z0-9]*=[^&=]*)(?:&[a-z][a-z0-9]*=[^&=]*)*$/.test(decodedScores)) {
+      throw new Error("Invalid results payload");
+    }
+    decodedScores.split("&").forEach(function (entry) {
+      var pair = entry.split("=");
+      var score = Number(pair[1]);
+      if (pair.length === 2 && Number.isFinite(score)) {
+        scores[pair[0]] = Math.max(0, Math.min(1, score / 100));
+      }
+    });
+  } catch (error) {
+    scorePayload = "";
+    scores = {};
+  }
+
+  currentUrl.search = "";
+  currentUrl.searchParams.set("lang", $.i18n().locale);
+  currentUrl.hash = scorePayload;
+  var resultsUrl = currentUrl.href;
   var urlToCopy = document.getElementById("urlToCopy");
   if (urlToCopy) {
-    urlToCopy.innerHTML = resultsUrl;
+    urlToCopy.textContent = resultsUrl;
   }
 
   var bonusEnabled = true;
@@ -167,29 +197,27 @@ function init_results() {
     sloganDiv.innerHTML = generatedSlogan;
   }
 
+  var imageCount = Object.keys(images).length;
   for (var b in images) {
-    var src = images[b];
+    var src = new URL(images[b], window.PolitiScales.baseUrl).href;
     images[b] = new Image();
-    images[b].src = src;
     images[b].onload = onImageLoaded;
+    images[b].onerror = onImageLoaded;
+    images[b].src = src;
   }
 
   /* USUAL FUNCTIONS */
 
   function getQueryVariable(variable) {
-    var query = window.atob(window.location.search.substring(1));
-    var vars = query.split("&");
-    for (var i = 0; i < vars.length; i++) {
-      var pair = vars[i].split("=");
-      if (pair[0] == variable) {
-        if (pair[1] == "NaN") {
-          return 0;
-        } else {
-          return pair[1] / 100;
-        }
-      }
-    }
-    return 0;
+    return Object.prototype.hasOwnProperty.call(scores, variable) ? scores[variable] : 0;
+  }
+
+  function imageReady(image) {
+    return image && image.complete && image.naturalWidth > 0;
+  }
+
+  function drawLoadedImage(ctx, image, x, y) {
+    if (imageReady(image)) ctx.drawImage(image, x, y);
   }
 
   function setAxisValue(name, value) {
@@ -449,7 +477,7 @@ function init_results() {
   function onImageLoaded() {
     numImageLoaded++;
 
-    if (numImageLoaded < images.length) {
+    if (numImageLoaded < imageCount || renderVersion !== resultsRenderVersion) {
       return;
     }
 
@@ -517,7 +545,7 @@ function init_results() {
         spriteS = flagShapes[flagId].symbol[2];
       }
 
-      if (symbolData[0].parent_type != "none") {
+      if (symbolData[0].parent_type != "none" && imageReady(images["sprites"])) {
         var tmpC = document.createElement("canvas");
         tmpC.width = images["sprites"].width;
         tmpC.height = images["sprites"].height;
@@ -613,11 +641,8 @@ function init_results() {
         ctx.fillStyle = "#ffffff";
         ctx.font = "bold 15px sans-serif";
         ctx.textAlign = "right";
-        if(window.location.pathname.indexOf("/politiscales") > -1) {
-          ctx.fillText(window.location.host+"/politiscales", rPreview.width - 10, 27);
-        } else {
-          ctx.fillText(window.location.host, rPreview.width - 10, 27);
-        }
+        var siteUrl = window.PolitiScales.baseUrl;
+        ctx.fillText(siteUrl.host + siteUrl.pathname.replace(/\/$/, ""), rPreview.width - 10, 27, rPreview.width - 195);
         yPos += 48;
 
         //Flag
@@ -638,7 +663,7 @@ function init_results() {
         ctx.fillStyle = "#000000";
         ctx.font = "25px sans-serif";
         ctx.textAlign = "center";
-        ctx.fillText(generatedSlogan, rPreview.width / 2.0, yPos + 30);
+        ctx.fillText(generatedSlogan, rPreview.width / 2.0, yPos + 30, rPreview.width - 32);
         yPos += 70;
 
         // Totals
@@ -777,12 +802,14 @@ function init_results() {
             );
           }
 
-          ctx.drawImage(
+          drawLoadedImage(
+            ctx,
             images[axesDrawInfo[i]["key"] + "0"],
             axeMargin - 73,
             yPos - 27
           );
-          ctx.drawImage(
+          drawLoadedImage(
+            ctx,
             images[axesDrawInfo[i]["key"] + "1"],
             rPreview.width - axeMargin + 73 - 86,
             yPos - 27
@@ -791,13 +818,14 @@ function init_results() {
           ctx.fillStyle = "#000000";
           ctx.font = "16px sans-serif";
           ctx.textAlign = "left";
-          ctx.fillText(axesDrawInfo[i]["name0"], axeMargin + 8, yPos - 6);
+          ctx.fillText(axesDrawInfo[i]["name0"], axeMargin + 8, yPos - 6, (axeWidth - 24) / 2);
 
           ctx.textAlign = "right";
           ctx.fillText(
             axesDrawInfo[i]["name1"],
             rPreview.width - axeMargin - 8,
-            yPos - 6
+            yPos - 6,
+            (axeWidth - 24) / 2
           );
 
           yPos += 100;
@@ -815,7 +843,8 @@ function init_results() {
         for (var b in bonus) {
           value = getQueryVariable(b);
           if (value > bonus[b]) {
-            ctx.drawImage(
+            drawLoadedImage(
+              ctx,
               images[b],
               rPreview.width / 2 - ((numBonus - 1) * 100) / 2 + xShift - 43,
               yPos - 27
