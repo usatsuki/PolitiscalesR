@@ -7,6 +7,7 @@ A multilingual fork of [Conobi/politiscales](https://github.com/Conobi/politisca
 - Preserves all 117 original English questions, their scoring weights, eight axes, and flag generation rules.
 - Adds complete Traditional Chinese and Japanese questions, instructions, axis explanations, result labels, and sharing text.
 - Supports language switching during a quiz without losing the question position or answers. An explicit `?lang=` link takes precedence over saved and browser preferences; regional tags such as `zh-TW` and `ja-JP` are supported.
+- The Save progress button above the answer choices stores a manual checkpoint in this browser. Reopening the quiz restores the saved answers, position and original question order, even on a later day. Save again after further answers; finishing the test or choosing Start over clears the saved checkpoint.
 - Retains the original design and dark mode, with readable CJK text and mobile controls.
 - Calculates scores in the browser. Result links encode scores after `#`; no answers are posted to the upstream statistics endpoint. The footer and data policy describe this fork's actual behavior.
 

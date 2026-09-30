@@ -524,6 +524,14 @@ input[type="checkbox"] {
     transform: translate(26px,0.5px);
 }
 
+.quiz-progress { max-width: 400px; margin: 0 auto 1em; text-align: center; }
+#save-progress { width: 100%; min-height: 2.5em; box-sizing: border-box; border: 1px solid #500076; background: transparent; color: #500076; }
+.darkbody #save-progress { border-color: #d9a8ef; color: #e6c4f5; }
+#save-progress:hover:not(:disabled) { background: rgba(125, 65, 150, 0.12); }
+#progress-status { margin: 0.2em 0; font-size: 0.85em; line-height: 1.6; }
+#restart-progress { padding: 0.3em 0.6em; margin: 0.2em 0; font-size: 0.85em; background: transparent; color: inherit; text-decoration: underline; }
+#restart-progress[hidden] { display: none; }
+
 /* Multilingual controls and readable CJK text on small screens. */
 .language { font: inherit; max-width: 10em; padding: 0.45em; border-radius: 4px; }
 .simpleText, .descText, .descTextMono, .questionBox { line-height: 1.7; overflow-wrap: anywhere; }

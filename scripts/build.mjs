@@ -68,6 +68,12 @@ for (const [source, type, route] of [
     .replace(/href="\.\/(quiz|about|about_data|results)"/g, 'href="./$1/"')
     .replace('onclick="prev_question()"', 'onclick="prev_question(); return false;"')
     .replaceAll('<button onclick="next_question(', '<button disabled onclick="next_question(')
+    .replace('<div class="navButtons questionButtons">', `<div class="quiz-progress">
+      <button type="button" id="save-progress" onclick="save_progress()" disabled data-i18n="save_progress">${message('save_progress')}</button>
+      <p id="progress-status" role="status" aria-live="polite" data-i18n="progress_hint">${message('progress_hint')}</p>
+      <button type="button" id="restart-progress" onclick="restart_quiz()" disabled hidden data-i18n="progress_restart">${message('progress_restart')}</button>
+    </div>
+    <div class="navButtons questionButtons">`)
     .replace('<h2 id="question-number">', '<h2 id="question-number" aria-live="polite">')
     .replace('<input type="checkbox">', '<input type="checkbox" aria-label="Dark mode">')
     .replace('<body>', '<body>\n<noscript><p class="simpleText">' + siteCopy.en.no_script + '</p></noscript>');

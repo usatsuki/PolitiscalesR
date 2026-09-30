@@ -23,7 +23,7 @@
   async function updateText(language) {
     const selector = document.querySelector('.language');
     selector.disabled = true;
-    document.querySelectorAll('.questionButtons button').forEach(button => { button.disabled = true; });
+    document.querySelectorAll('.questionButtons button, .quiz-progress button').forEach(button => { button.disabled = true; });
     try {
       const messages = {};
       await Promise.all([...new Set(['en', language])].map(async locale => {

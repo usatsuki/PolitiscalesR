@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { mkdir } from 'node:fs/promises';
 import { spawn } from 'node:child_process';
 import { once } from 'node:events';
+import { testProgress } from './progress.mjs';
 
 const remote = process.env.TEST_URL;
 const base = remote || 'http://127.0.0.1:4175/PolitiscalesR/';
@@ -18,6 +19,7 @@ const browser = await chromium.launch({ headless: true });
 const errors = [];
 const locales = ['en', 'zh-Hant', 'ja'];
 try {
+  await testProgress(browser, base);
   for (const [index, locale] of locales.entries()) {
     const context = await browser.newContext({ viewport: { width: index ? 390 : 1280, height: index ? 844 : 900 }, reducedMotion: 'reduce' });
     const page = await context.newPage();
@@ -51,6 +53,7 @@ try {
     assert.equal(await page.evaluate(() => questions[0].answer), 1);
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true, locale + ' quiz overflow');
     await page.screenshot({ path: 'test-results/quiz-' + locale + '.png', fullPage: true });
+    await page.locator('#save-progress').click();
     for (let question = 1; question < 117; question++) {
       await page.locator(['.agree', '.neutral', '.disagree', '.strong-disagree', '.strong-agree'][question % 5]).click();
     }
@@ -58,6 +61,7 @@ try {
     await ready(locale);
     const painted = async () => page.waitForFunction(() => document.getElementById('generatedResults').getContext('2d').getImageData(0, 0, 1, 1).data[3] === 255);
     await painted();
+    assert.equal(await page.evaluate(() => localStorage.getItem('politiscales.progress.v1:' + window.PolitiScales.baseUrl.pathname)), null, 'Completing a test clears saved progress');
     const resultUrl = page.url();
     const shared = await page.locator('#urlToCopy').textContent();
     assert.equal(shared, resultUrl);

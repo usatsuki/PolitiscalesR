@@ -3,6 +3,72 @@ var qn = 0;
 var quizReady = false;
 var now = new Date();
 var quizSeed = new Date(now.getFullYear(), now.getMonth(), now.getDate()) / 1000;
+var progressRestoreAttempted = false;
+var savedProgressAvailable = false;
+var progressMessageKey = 'progress_hint';
+
+function progressStorageKey() {
+  return 'politiscales.progress.v1:' + window.PolitiScales.baseUrl.pathname;
+}
+
+function readSavedProgress() {
+  try {
+    var saved = JSON.parse(localStorage.getItem(progressStorageKey()));
+    var validAnswers = [-1, -2 / 3, 0, 2 / 3, 1];
+    if (!saved || saved.version !== 1 || saved.questionnaire !== 'classic-117-v1' ||
+        !Number.isSafeInteger(saved.seed) || saved.seed < 0 || saved.seed > 8640000000000 ||
+        !Number.isSafeInteger(saved.savedAt) || saved.savedAt < 0 ||
+        !Number.isInteger(saved.questionIndex) || saved.questionIndex < 0 || saved.questionIndex >= questions.length ||
+        !Array.isArray(saved.answers) || saved.answers.length !== questions.length ||
+        !saved.answers.every(function (answer) { return validAnswers.includes(answer); })) {
+      return null;
+    }
+    return saved;
+  } catch (_) { return null; }
+}
+
+function updateProgressStatus(key) {
+  if (key) progressMessageKey = key;
+  var status = document.getElementById('progress-status');
+  status.setAttribute('data-i18n', progressMessageKey);
+  status.textContent = $.i18n(progressMessageKey);
+  document.getElementById('restart-progress').hidden = !savedProgressAvailable;
+}
+
+function save_progress() {
+  if (!quizReady || qn >= questions.length) return;
+  try {
+    localStorage.setItem(progressStorageKey(), JSON.stringify({
+      version: 1,
+      questionnaire: 'classic-117-v1',
+      seed: quizSeed,
+      questionIndex: qn,
+      answers: questions.map(function (question) { return question.answer; }),
+      savedAt: Date.now()
+    }));
+    savedProgressAvailable = true;
+    updateProgressStatus('progress_saved');
+  } catch (_) {
+    updateProgressStatus('progress_save_failed');
+  }
+}
+
+function restart_quiz() {
+  if (!quizReady || !window.confirm($.i18n('progress_restart_confirm'))) return;
+  try {
+    localStorage.removeItem(progressStorageKey());
+  } catch (_) {
+    updateProgressStatus('progress_restart_failed');
+    return;
+  }
+  // Keep this session's shuffled order; never reshuffle an already shuffled list.
+  questions.forEach(function (question) { question.answer = 0; });
+  qn = 0;
+  savedProgressAvailable = false;
+  start_time();
+  init_question();
+  updateProgressStatus('progress_restarted');
+}
 
 async function loadQuizLanguage(language) {
   quizReady = false;
@@ -14,13 +80,25 @@ async function loadQuizLanguage(language) {
     script.onerror = function () { script.remove(); reject(new Error('Question file failed to load')); };
     document.head.appendChild(script);
   });
+  if (!progressRestoreAttempted) {
+    var saved = readSavedProgress();
+    progressRestoreAttempted = true;
+    if (saved) {
+      quizSeed = saved.seed;
+      qn = saved.questionIndex;
+      answers = saved.answers;
+      savedProgressAvailable = true;
+      progressMessageKey = 'progress_restored';
+    }
+  }
   shuffle(questions, quizSeed);
   questions.forEach(function (question, index) {
     if (index < answers.length) question.answer = answers[index];
   });
   quizReady = true;
   init_question();
-  document.querySelectorAll('.questionButtons button').forEach(function (button) { button.disabled = false; });
+  updateProgressStatus();
+  document.querySelectorAll('.questionButtons button, .quiz-progress button').forEach(function (button) { button.disabled = false; });
 }
 
 start_time();
@@ -91,6 +169,7 @@ function next_question(mult) {
   if (!quizReady || qn >= questions.length) return;
   questions[qn].answer = mult;
   qn++;
+  updateProgressStatus(savedProgressAvailable ? 'progress_unsaved' : 'progress_hint');
 
   if (qn < questions.length) {
     init_question();
@@ -104,6 +183,7 @@ function prev_question() {
   }
   qn--;
   init_question();
+  updateProgressStatus(savedProgressAvailable ? 'progress_unsaved' : 'progress_hint');
 }
 
 function calc_score(score, max_value) {
@@ -160,5 +240,7 @@ function results() {
   destination.searchParams.set('lang', window.PolitiScales.language);
   // Fragments stay in the browser and are not sent to the hosting server.
   destination.hash = window.btoa(url);
+  // A completed test must not reopen an old saved checkpoint.
+  try { localStorage.removeItem(progressStorageKey()); } catch (_) { /* Completion must still work without storage. */ }
   location.href = destination.href;
 }
