@@ -15,7 +15,7 @@ if (!remote) {
   await once(server.stdout, 'data');
 }
 await mkdir('test-results', { recursive: true });
-const browser = await chromium.launch({ headless: true });
+const browser = await chromium.launch({ headless: true, channel: process.env.POLITISCALES_BROWSER_CHANNEL || undefined });
 const errors = [];
 const locales = ['en', 'zh-Hant', 'ja'];
 try {
