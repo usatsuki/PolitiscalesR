@@ -47,6 +47,8 @@ Original project: Radicalisé·e·s sur Internet / Dirtbag HQ, inspired by 8valu
 
 The MIT license permits modification and redistribution provided the original copyright and permission notice are retained. The published site includes that license and the [third-party notices](THIRD_PARTY_NOTICES.txt) for jQuery, its bundled Sizzle engine, and jquery.i18n (under its MIT license option). Original library copyright headers are preserved.
 
+The language menu uses a locally hosted three-flag subset of Noto Color Emoji, distributed under the [SIL Open Font License](src/fonts/OFL.txt).
+
 ---
 
 ## Upstream README

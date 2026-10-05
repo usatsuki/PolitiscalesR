@@ -141,3 +141,15 @@ CLDRPluralRuleParser
  - Santhosh Thottingal and other contributors
 
 And thanks to all patch contributors
+
+------------------------------------------------------------
+
+Noto Color Emoji (src/fonts/language-flags.woff2)
+Copyright 2021 Google Inc. All Rights Reserved.
+
+Three-flag subset (United Kingdom, Hong Kong, Japan) provided by Google Fonts:
+https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&text=%F0%9F%87%AC%F0%9F%87%A7%F0%9F%87%AD%F0%9F%87%B0%F0%9F%87%AF%F0%9F%87%B5
+
+Distributed under the SIL Open Font License, Version 1.1.
+The complete copyright and license notice is included in src/fonts/OFL.txt.
+Source: https://github.com/google/fonts/tree/main/ofl/notocoloremoji
